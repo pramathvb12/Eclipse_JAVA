@@ -1,0 +1,16 @@
+package myjava;
+
+public class add {
+
+	public static void main(String[] args) {
+	
+	}
+
+}
+public class sum{
+	String name;
+	int num = 5;
+	sum(String name){
+		this.name=name;
+	}
+}

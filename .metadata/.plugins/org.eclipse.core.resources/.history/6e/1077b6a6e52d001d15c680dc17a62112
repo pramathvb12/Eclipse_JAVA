@@ -1,0 +1,49 @@
+package prog2;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import java.util.StringJoiner;
+import java.util.StringTokenizer;
+class Customer {
+	 String name;
+	 String dob;
+	 void accept() {
+	 Scanner scanner = new Scanner(System.in);
+	 System.out.println("Enter Name and DoB");
+	 String input = scanner.nextLine();
+	 StringTokenizer stringTokenizer = new StringTokenizer(input, 
+	",");
+	 try {
+	 name = stringTokenizer.nextToken().trim();
+	 dob = stringTokenizer.nextToken().trim();
+	 } catch (NoSuchElementException e) {
+	 System.out.println("Invalid Format");
+	 System.exit(0);
+	 }
+	 }
+	 void display() {
+	 StringTokenizer stringTokenizer = new StringTokenizer(dob, 
+	"/");
+	 try {
+	 String dd = stringTokenizer.nextToken().trim();
+	 String mm = stringTokenizer.nextToken().trim();
+	 String yy = stringTokenizer.nextToken().trim();
+	 StringJoiner stringJoiner = new StringJoiner(", ");
+	 stringJoiner.add(name).add(dd).add(mm).add(yy);
+	 System.out.println(stringJoiner.toString());
+	 } catch (NoSuchElementException e) {
+	 System.out.println("Invalid Format");
+	 System.exit(0);
+	 }
+	 }
+	}
+public class Main {
+	static Customer customer;
+
+	public static void main(String[] args) {
+		customer = new Customer();
+		 customer.accept();
+		 customer.display();
+
+	}
+
+}
